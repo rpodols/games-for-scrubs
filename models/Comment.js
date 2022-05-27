@@ -1,17 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class Comment extends Model {}
 
-Post.init(
+Comment.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-        },
-        title: {
+        }, 
+        comment_text: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -19,23 +19,24 @@ Post.init(
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
-                key: 'id'
+                keys: 'id'
             }
         },
-        content: {
-            type: DataTypes.STRING,
-            allowNull: false
+        post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'post',
+                keys: 'id'
+            }
         }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post'
+        modelName: 'comment'
     }
 );
 
-module.exports = Post;
+module.exports = Comment;
 
-//INSERT INTO posts (title, content, user_id, created_at, updated_at)
-//VALUES ("Taskmaster goes public!", "https://taskmaster/press", 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
