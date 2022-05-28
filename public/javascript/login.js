@@ -6,7 +6,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
 
     if (username && email && password) {
-        await fetch('/api/users', {
+        const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
                 username,
@@ -17,6 +17,7 @@ async function signupFormHandler(event) {
         });
         if (response.ok) {
         console.log('User Created');
+        document.location.replace('/');
         } else {
             alert(response.statusText);
         }
@@ -48,4 +49,4 @@ async function loginFormHandler(event) {
 }
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.querySelector('login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
