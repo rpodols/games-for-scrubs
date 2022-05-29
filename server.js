@@ -9,11 +9,14 @@ const hbs = exphbs.create({ helpers });
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+var expireDate = new Date(Date.now() + (30000));
+
 const sess = {
     secret: 'secret',
-    cookie: {},
-    resave: false,
+    resave: true,
     saveUninitialized: true,
+    rolling: true,
+    cookie: {expires: +expireDate},
     store: new SequelizeStore({
         db: sequelize
     })
