@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const auth = require('../../utils/auth')
 
 router.get('/', (req, res) => {
     
 });
 
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
     if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text,
@@ -20,7 +21,7 @@ router.post('/', (req, res) => {
     }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
 
 });
 
