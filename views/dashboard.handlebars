@@ -1,5 +1,5 @@
-<section>
-    <h2>Create New Post</h2>
+<section class="card bg-light">
+    <h2>Create New Blog Post</h2>
 
     <form class="new-post-form">
         <div>
@@ -23,8 +23,7 @@
         <li class="list-group-item">
             {{> post-info post}}
             <a class = "btn btn-secondary btn-sm" href="/dashboard/edit/{{post.id}}" role="button" class="edit-link">Edit Post</a>
-            
-        </li>
+       </li>
         {{/each}}
     </ol>
 </section>
