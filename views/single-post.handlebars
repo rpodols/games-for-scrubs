@@ -1,9 +1,11 @@
 <article class="post">
-    <div>
-        <h1>{{post.title}}</h1>
+    <div class="card">
+        <h1 class="bg-light">{{post.title}}</h1>
+        <p>{{post.content}}</p>
+        <p class="bg-light">Posted: {{format_date post.created_at}}</p>
     </div>
     <div>
-        {{post.created_at}}
+        
 
         <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
  {{> comments post.comments}}
@@ -14,11 +16,11 @@
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea class="text-box-class" name="comment-body"></textarea>
     </div>
 
     <div>
-        <button type="submit">Add Comment</button>
+        <button class="btn btn-secondary btn-sm" type="submit">Add Comment</button>
     </div>
 </form>
 {{/if}}

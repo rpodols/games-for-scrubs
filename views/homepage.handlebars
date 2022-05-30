@@ -4,7 +4,7 @@
         <li class="list-group-item">
             <article>
                 <div class="card">
-                    <h1 class="card-title bg-light">{{title}}</h1>
+                    <h1 class="card-title bg-light"><a href="/post/{{id}}">{{title}}</a></h1>
                     <p class="card-body">{{content}}</p>
                     <div class="bg-light">Written By: {{user.username}} | Written on: {{format_date created_at}}</div>
                     <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
