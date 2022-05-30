@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    padding: .4%;
+    margin: 0;
+}
+
+body {
+    background-color: #f3e6e6;
+}
+#post-div {
+    border: 1px black;
+}
+.text-box-class {
+    width: 100%
+}
