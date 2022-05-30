@@ -1,12 +1,12 @@
 
     <ol>
         {{#each blogPosts}}
-        <li>
+        <li class="list-group-item">
             <article>
-                <div>
-                    <h1>{{title}}</h1>
-                    <p>{{content}}</p>
-                    <div>by: {{user.username}} on {{format_date created_at}}</div>
+                <div class="card">
+                    <h1 class="card-title bg-light">{{title}}</h1>
+                    <p class="card-body">{{content}}</p>
+                    <div class="bg-light">Written By: {{user.username}} | Written on: {{format_date created_at}}</div>
                     <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
                 </div>
             </article>
